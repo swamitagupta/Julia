@@ -16,14 +16,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="K3e-9B-WKc">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sample" translatesAutoresizingMaskIntoConstraints="NO" id="K3e-9B-WKc">
                                 <rect key="frame" x="0.0" y="88" width="414" height="387"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="K3e-9B-WKc" secondAttribute="height" multiplier="46:43" id="576-qf-Hik"/>
                                 </constraints>
                             </imageView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="duX-G2-0nP">
-                                <rect key="frame" x="20" y="483" width="374" height="204"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="duX-G2-0nP">
+                                <rect key="frame" x="20" y="483" width="374" height="229"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <color key="textColor" systemColor="labelColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -42,13 +42,23 @@
                             <constraint firstItem="duX-G2-0nP" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="R95-kQ-L5H"/>
                             <constraint firstItem="K3e-9B-WKc" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Rv8-oc-Nsp"/>
                             <constraint firstItem="duX-G2-0nP" firstAttribute="top" secondItem="K3e-9B-WKc" secondAttribute="bottom" constant="8" symbolic="YES" id="SRY-BZ-OdP"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="duX-G2-0nP" secondAttribute="bottom" constant="150" id="YoE-rv-lmc"/>
                             <constraint firstItem="vN9-ny-Ssh" firstAttribute="top" secondItem="K3e-9B-WKc" secondAttribute="bottom" constant="100" id="jgV-fa-Sw9"/>
                             <constraint firstItem="K3e-9B-WKc" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="y1P-rx-f9R"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Xs7-av-hmB">
-                        <barButtonItem key="rightBarButtonItem" systemItem="camera" id="ael-kR-bcm"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="camera" id="ael-kR-bcm">
+                            <connections>
+                                <action selector="cameraTapped:" destination="BYZ-38-t0r" id="Irc-Ms-HyU"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="activity" destination="vN9-ny-Ssh" id="Y1U-Wy-xVZ"/>
+                        <outlet property="imageView" destination="K3e-9B-WKc" id="DdD-N8-ByH"/>
+                        <outlet property="textView" destination="duX-G2-0nP" id="Oga-5q-CVQ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -74,6 +84,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="sample" width="500" height="410"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
