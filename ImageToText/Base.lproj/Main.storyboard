@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="6u2-d6-98M">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="R82-6X-R2J">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
@@ -23,7 +23,7 @@
                                 </constraints>
                             </imageView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="duX-G2-0nP">
-                                <rect key="frame" x="20" y="483" width="374" height="229"/>
+                                <rect key="frame" x="20" y="483" width="374" height="230"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <color key="textColor" systemColor="labelColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -32,8 +32,8 @@
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="vN9-ny-Ssh">
                                 <rect key="frame" x="197" y="575" width="20" height="20"/>
                             </activityIndicatorView>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5PQ-pI-cLK">
-                                <rect key="frame" x="185" y="762" width="45" height="44"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5PQ-pI-cLK">
+                                <rect key="frame" x="198.5" y="763" width="17.5" height="22"/>
                                 <state key="normal" image="speaker" catalog="system"/>
                                 <connections>
                                     <action selector="voiceTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="rlv-Df-GnG"/>
@@ -50,7 +50,7 @@
                             <constraint firstItem="duX-G2-0nP" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="R95-kQ-L5H"/>
                             <constraint firstItem="K3e-9B-WKc" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Rv8-oc-Nsp"/>
                             <constraint firstItem="duX-G2-0nP" firstAttribute="top" secondItem="K3e-9B-WKc" secondAttribute="bottom" constant="8" symbolic="YES" id="SRY-BZ-OdP"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="duX-G2-0nP" secondAttribute="bottom" constant="150" id="YoE-rv-lmc"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="duX-G2-0nP" secondAttribute="bottom" constant="100" id="YoE-rv-lmc"/>
                             <constraint firstItem="vN9-ny-Ssh" firstAttribute="top" secondItem="K3e-9B-WKc" secondAttribute="bottom" constant="100" id="jgV-fa-Sw9"/>
                             <constraint firstItem="5PQ-pI-cLK" firstAttribute="top" secondItem="duX-G2-0nP" secondAttribute="bottom" constant="50" id="rI5-vf-Kn8"/>
                             <constraint firstItem="K3e-9B-WKc" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="y1P-rx-f9R"/>
@@ -71,12 +71,13 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="773.91304347826087" y="93.75"/>
+            <point key="canvasLocation" x="1684.057971014493" y="93.75"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Read-->
         <scene sceneID="9Op-97-wFP">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="6u2-d6-98M" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Read" image="book" catalog="system" id="OaC-6G-cvF"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="KMi-49-15B">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -89,10 +90,86 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="los-9B-kJa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="773.91304347826087" y="93.75"/>
+        </scene>
+        <!--Search-->
+        <scene sceneID="9ed-35-XRt">
+            <objects>
+                <viewController id="811-Bn-yUi" customClass="SearchViewController" customModule="ImageToText" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="DFX-6g-KoZ">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What are you looking for?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fcg-tY-w0M">
+                                <rect key="frame" x="110" y="144" width="194" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Say Something" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="K7o-UH-bRw">
+                                <rect key="frame" x="87" y="215" width="240" height="128"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="128" id="th9-gl-bLB"/>
+                                </constraints>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A3G-Wl-01S">
+                                <rect key="frame" x="198.5" y="741" width="17" height="22"/>
+                                <state key="normal" image="mic" catalog="system"/>
+                                <connections>
+                                    <action selector="micTapped:" destination="811-Bn-yUi" eventType="touchUpInside" id="j4B-dq-EJ4"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="xEv-7O-PyY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Fcg-tY-w0M" firstAttribute="top" secondItem="xEv-7O-PyY" secondAttribute="top" constant="100" id="7xD-al-wSR"/>
+                            <constraint firstItem="K7o-UH-bRw" firstAttribute="leading" secondItem="xEv-7O-PyY" secondAttribute="leading" constant="87" id="9wr-AO-Vyk"/>
+                            <constraint firstItem="K7o-UH-bRw" firstAttribute="centerX" secondItem="A3G-Wl-01S" secondAttribute="centerX" id="APN-UK-2Yr"/>
+                            <constraint firstItem="xEv-7O-PyY" firstAttribute="bottom" secondItem="A3G-Wl-01S" secondAttribute="bottom" constant="50" id="UUA-Qe-Fbr"/>
+                            <constraint firstItem="Fcg-tY-w0M" firstAttribute="centerX" secondItem="DFX-6g-KoZ" secondAttribute="centerX" id="cTM-hf-eun"/>
+                            <constraint firstItem="K7o-UH-bRw" firstAttribute="centerX" secondItem="DFX-6g-KoZ" secondAttribute="centerX" id="jPP-Qh-fyD"/>
+                            <constraint firstItem="A3G-Wl-01S" firstAttribute="centerX" secondItem="DFX-6g-KoZ" secondAttribute="centerX" id="mfJ-a9-i9z"/>
+                            <constraint firstItem="K7o-UH-bRw" firstAttribute="top" secondItem="Fcg-tY-w0M" secondAttribute="bottom" constant="50" id="rnq-KP-zIP"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Search" image="magnifyingglass" catalog="system" id="1tL-G0-9zT"/>
+                    <connections>
+                        <outlet property="micButton" destination="A3G-Wl-01S" id="CEq-Yg-7zJ"/>
+                        <outlet property="textView" destination="K7o-UH-bRw" id="Rb4-dF-TdC"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="77U-Oz-1Ec" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="774" y="784"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="RW9-LZ-biD">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="R82-6X-R2J" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="m55-zn-Kre">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="6u2-d6-98M" kind="relationship" relationship="viewControllers" id="1ZN-7D-p13"/>
+                        <segue destination="811-Bn-yUi" kind="relationship" relationship="viewControllers" id="GEs-Fv-jnD"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GW6-uq-n2C" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
             <point key="canvasLocation" x="-136.23188405797103" y="93.75"/>
         </scene>
     </scenes>
     <resources>
+        <image name="book" catalog="system" width="128" height="102"/>
+        <image name="magnifyingglass" catalog="system" width="128" height="115"/>
+        <image name="mic" catalog="system" width="108" height="128"/>
         <image name="speaker" catalog="system" width="128" height="124"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
