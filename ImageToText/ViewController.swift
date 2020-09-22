@@ -13,6 +13,8 @@ class ViewController: UIViewController, UINavigationControllerDelegate {
     
     var image  = UIImage(named: "sample")
     var textString = ""
+    
+    
 
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var textView: UITextView!
@@ -26,6 +28,8 @@ class ViewController: UIViewController, UINavigationControllerDelegate {
         self.activity.isHidden = true
         self.activity.stopAnimating()
         imagePicker.delegate = self
+        
+        
     }
     
     @IBAction func cameraTapped(_ sender: Any) {
@@ -53,9 +57,21 @@ class ViewController: UIViewController, UINavigationControllerDelegate {
         let utterance = AVSpeechUtterance(string: textView.text)
         utterance.voice = AVSpeechSynthesisVoice(language: "en-US")
         utterance.rate = 0.5
+        
+        let summary = Summary()
+
+        var content = textView.text!
+
+        var summarisedContent = summary.getSummary(content: content)
+        print(summarisedContent.description)
+        textView.text = summarisedContent.description
 
         let synthesizer = AVSpeechSynthesizer()
         synthesizer.speak(utterance)
+        print("Hell0")
+        
+        
+        
     }
     
     //MARK: - Extract text using Vision

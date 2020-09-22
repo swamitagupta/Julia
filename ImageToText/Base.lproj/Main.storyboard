@@ -123,6 +123,10 @@
                                     <action selector="micTapped:" destination="811-Bn-yUi" eventType="touchUpInside" id="j4B-dq-EJ4"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gvf-oW-hrX">
+                                <rect key="frame" x="183" y="351" width="48" height="30"/>
+                                <state key="normal" title="Search"/>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="xEv-7O-PyY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -130,7 +134,9 @@
                             <constraint firstItem="Fcg-tY-w0M" firstAttribute="top" secondItem="xEv-7O-PyY" secondAttribute="top" constant="100" id="7xD-al-wSR"/>
                             <constraint firstItem="K7o-UH-bRw" firstAttribute="leading" secondItem="xEv-7O-PyY" secondAttribute="leading" constant="87" id="9wr-AO-Vyk"/>
                             <constraint firstItem="K7o-UH-bRw" firstAttribute="centerX" secondItem="A3G-Wl-01S" secondAttribute="centerX" id="APN-UK-2Yr"/>
+                            <constraint firstItem="Gvf-oW-hrX" firstAttribute="top" secondItem="K7o-UH-bRw" secondAttribute="bottom" constant="8" symbolic="YES" id="H2u-NC-zBM"/>
                             <constraint firstItem="xEv-7O-PyY" firstAttribute="bottom" secondItem="A3G-Wl-01S" secondAttribute="bottom" constant="50" id="UUA-Qe-Fbr"/>
+                            <constraint firstItem="Gvf-oW-hrX" firstAttribute="centerX" secondItem="DFX-6g-KoZ" secondAttribute="centerX" id="bIc-I0-AHc"/>
                             <constraint firstItem="Fcg-tY-w0M" firstAttribute="centerX" secondItem="DFX-6g-KoZ" secondAttribute="centerX" id="cTM-hf-eun"/>
                             <constraint firstItem="K7o-UH-bRw" firstAttribute="centerX" secondItem="DFX-6g-KoZ" secondAttribute="centerX" id="jPP-Qh-fyD"/>
                             <constraint firstItem="A3G-Wl-01S" firstAttribute="centerX" secondItem="DFX-6g-KoZ" secondAttribute="centerX" id="mfJ-a9-i9z"/>
@@ -163,7 +169,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GW6-uq-n2C" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-136.23188405797103" y="93.75"/>
+            <point key="canvasLocation" x="-238" y="486"/>
         </scene>
     </scenes>
     <resources>
