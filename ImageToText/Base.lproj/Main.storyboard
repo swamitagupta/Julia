@@ -32,11 +32,19 @@
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="vN9-ny-Ssh">
                                 <rect key="frame" x="197" y="575" width="20" height="20"/>
                             </activityIndicatorView>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5PQ-pI-cLK">
+                                <rect key="frame" x="185" y="762" width="45" height="44"/>
+                                <state key="normal" image="speaker" catalog="system"/>
+                                <connections>
+                                    <action selector="voiceTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="rlv-Df-GnG"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="vN9-ny-Ssh" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="1kp-eP-GiQ"/>
+                            <constraint firstItem="5PQ-pI-cLK" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="7Ih-II-jHN"/>
                             <constraint firstItem="K3e-9B-WKc" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="GJR-3S-7io"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="duX-G2-0nP" secondAttribute="trailing" constant="20" id="MmW-iW-JcW"/>
                             <constraint firstItem="duX-G2-0nP" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="R95-kQ-L5H"/>
@@ -44,6 +52,7 @@
                             <constraint firstItem="duX-G2-0nP" firstAttribute="top" secondItem="K3e-9B-WKc" secondAttribute="bottom" constant="8" symbolic="YES" id="SRY-BZ-OdP"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="duX-G2-0nP" secondAttribute="bottom" constant="150" id="YoE-rv-lmc"/>
                             <constraint firstItem="vN9-ny-Ssh" firstAttribute="top" secondItem="K3e-9B-WKc" secondAttribute="bottom" constant="100" id="jgV-fa-Sw9"/>
+                            <constraint firstItem="5PQ-pI-cLK" firstAttribute="top" secondItem="duX-G2-0nP" secondAttribute="bottom" constant="50" id="rI5-vf-Kn8"/>
                             <constraint firstItem="K3e-9B-WKc" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="y1P-rx-f9R"/>
                         </constraints>
                     </view>
@@ -85,6 +94,7 @@
     </scenes>
     <resources>
         <image name="sample" width="500" height="410"/>
+        <image name="speaker" catalog="system" width="128" height="124"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

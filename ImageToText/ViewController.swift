@@ -7,6 +7,7 @@
 
 import UIKit
 import Vision
+import AVFoundation
 
 class ViewController: UIViewController {
     
@@ -30,6 +31,18 @@ class ViewController: UIViewController {
         self.textView.text = ""
         recognizeText(image: image!)
     }
+    
+    //MARK: - Text to Speech
+    
+    @IBAction func voiceTapped(_ sender: Any) {
+        let utterance = AVSpeechUtterance(string: textView.text)
+        utterance.voice = AVSpeechSynthesisVoice(language: "en-GB")
+        utterance.rate = 0.5
+
+        let synthesizer = AVSpeechSynthesizer()
+        synthesizer.speak(utterance)
+    }
+    //MARK: - Extract text using Vision
     
     private func recognizeText(image: UIImage) {
         textString = ""
