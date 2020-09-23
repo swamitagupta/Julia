@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Extracted text will appear here." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="duX-G2-0nP">
-                                <rect key="frame" x="20" y="483" width="374" height="230"/>
+                                <rect key="frame" x="20" y="495" width="374" height="218"/>
                                 <color key="backgroundColor" red="0.78823529410000004" green="0.99215686270000003" blue="0.84313725490000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -166,7 +166,7 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="McW-ct-Llr" secondAttribute="bottom" constant="22" id="Qa2-z8-51w"/>
                             <constraint firstItem="duX-G2-0nP" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="R95-kQ-L5H"/>
                             <constraint firstItem="K3e-9B-WKc" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Rv8-oc-Nsp"/>
-                            <constraint firstItem="duX-G2-0nP" firstAttribute="top" secondItem="K3e-9B-WKc" secondAttribute="bottom" constant="8" symbolic="YES" id="SRY-BZ-OdP"/>
+                            <constraint firstItem="duX-G2-0nP" firstAttribute="top" secondItem="K3e-9B-WKc" secondAttribute="bottom" constant="20" id="SRY-BZ-OdP"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="McW-ct-Llr" secondAttribute="trailing" constant="30" id="Toa-N6-eua"/>
                             <constraint firstItem="35u-DI-swc" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Xts-oK-3jJ"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="duX-G2-0nP" secondAttribute="bottom" constant="100" id="YoE-rv-lmc"/>
@@ -339,6 +339,9 @@
                                         <integer key="value" value="10"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="searchTapped:" destination="811-Bn-yUi" eventType="touchUpInside" id="oXP-Aq-Fed"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A3G-Wl-01S">
                                 <rect key="frame" x="198.5" y="741" width="17" height="22"/>
@@ -375,6 +378,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="What are you looking for?" id="n5z-oS-D1k"/>
                     <connections>
+                        <outlet property="messageLabel" destination="szA-dg-IaV" id="yJX-mK-i1R"/>
                         <outlet property="micButton" destination="A3G-Wl-01S" id="CEq-Yg-7zJ"/>
                         <outlet property="textView" destination="K7o-UH-bRw" id="Rb4-dF-TdC"/>
                     </connections>

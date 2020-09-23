@@ -7,6 +7,7 @@
 
 import UIKit
 import Speech
+import SafariServices
 
 class SearchViewController: UIViewController, SFSpeechRecognizerDelegate {
     
@@ -18,6 +19,7 @@ class SearchViewController: UIViewController, SFSpeechRecognizerDelegate {
 
     @IBOutlet weak var textView: UITextView!
     @IBOutlet weak var micButton: UIButton!
+    @IBOutlet weak var messageLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -57,12 +59,18 @@ class SearchViewController: UIViewController, SFSpeechRecognizerDelegate {
                 audioEngine.stop()
                 recognitionRequest?.endAudio()
                 micButton.isEnabled = false
-                micButton.setTitle("Start Recording", for: .normal)
+            messageLabel.text = "Tap to Start Recording"
             } else {
                 startRecording()
-                micButton.setTitle("Stop Recording", for: .normal)
+                messageLabel.text = "Tap to Stop Recording"
             }
     }
+    
+    @IBAction func searchTapped(_ sender: Any) {
+        explore(textView.text)
+    }
+    
+    //MARK: - Mic Functionalities
     
     func startRecording() {
         
@@ -134,5 +142,19 @@ class SearchViewController: UIViewController, SFSpeechRecognizerDelegate {
         } else {
             micButton.isEnabled = false
         }
+    }
+    
+    //MARK: - Enter SafariVC
+    
+    func explore(_ topic: String) {
+        let newStr = topic.replacingOccurrences(of: " ", with: "+")
+        let urlString = "https://www.google.com/search?q="+newStr
+        if let url = URL(string: urlString) {
+            let config = SFSafariViewController.Configuration()
+            //config.entersReaderIfAvailable = true
+            let vc = SFSafariViewController(url: url, configuration: config)
+            present(vc, animated: true)
+        }
+        
     }
 }
