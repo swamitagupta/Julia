@@ -186,7 +186,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="Xs7-av-hmB">
                         <barButtonItem key="rightBarButtonItem" systemItem="camera" id="ael-kR-bcm">
-                            <color key="tintColor" red="0.47450980390000003" green="0.81960784310000001" blue="0.76470588240000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <color key="tintColor" red="0.39646901909999999" green="0.69206059639999995" blue="0.64650937890000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
                                 <action selector="cameraTapped:" destination="BYZ-38-t0r" id="Irc-Ms-HyU"/>
                             </connections>
@@ -214,7 +214,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Summary" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xoN-GV-MX4">
                                 <rect key="frame" x="155.5" y="50" width="103" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                <color key="textColor" red="0.47450980390000003" green="0.81960784310000001" blue="0.76470588240000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="textColor" red="0.39646901909999999" green="0.69206059639999995" blue="0.64650937890000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Summary here." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="lEz-ZZ-Xao">
@@ -424,7 +424,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.78823529410000004" green="0.99215686270000003" blue="0.84313725490000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <textAttributes key="titleTextAttributes">
-                            <color key="textColor" red="0.47450980390000003" green="0.81960784310000001" blue="0.76470588240000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <color key="textColor" red="0.39646901909999999" green="0.69206059639999995" blue="0.64650937890000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
