@@ -25,6 +25,7 @@ class SearchViewController: UIViewController, SFSpeechRecognizerDelegate {
         super.viewDidLoad()
         micButton.isEnabled = false
         speechRecognizer!.delegate = self
+        textView.text = "Say something, I'm listening!"
             
         SFSpeechRecognizer.requestAuthorization { (authStatus) in
                 
@@ -67,7 +68,12 @@ class SearchViewController: UIViewController, SFSpeechRecognizerDelegate {
     }
     
     @IBAction func searchTapped(_ sender: Any) {
-        explore(textView.text)
+        if textView.text == "Say something, I'm listening!" {
+            textView.text = "Speak on the microphone to record your request..."
+        } else {
+            explore(textView.text)
+        }
+        
     }
     
     //MARK: - Mic Functionalities
@@ -151,7 +157,6 @@ class SearchViewController: UIViewController, SFSpeechRecognizerDelegate {
         let urlString = "https://www.google.com/search?q="+newStr
         if let url = URL(string: urlString) {
             let config = SFSafariViewController.Configuration()
-            //config.entersReaderIfAvailable = true
             let vc = SFSafariViewController(url: url, configuration: config)
             present(vc, animated: true)
         }
