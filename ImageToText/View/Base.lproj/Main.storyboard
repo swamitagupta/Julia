@@ -78,6 +78,7 @@
                                                 <color key="tintColor" red="0.97254901959999995" green="0.98823529409999999" blue="0.98431372549999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <state key="normal" image="doc" catalog="system"/>
                                                 <connections>
+                                                    <action selector="summaryTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="4ha-A3-pd8"/>
                                                     <segue destination="Nn5-U2-9pM" kind="presentation" identifier="textToSummary" id="ChN-lq-KVf"/>
                                                 </connections>
                                             </button>

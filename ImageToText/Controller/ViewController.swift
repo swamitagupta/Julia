@@ -13,8 +13,7 @@ class ViewController: UIViewController, UINavigationControllerDelegate {
     
     var image  = UIImage(named: "sample")
     var textString = ""
-    
-    
+    var text = ""
 
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var textView: UITextView!
@@ -53,25 +52,40 @@ class ViewController: UIViewController, UINavigationControllerDelegate {
     
     //MARK: - Text to Speech
     
+    let synthesizer = AVSpeechSynthesizer()
+    
     @IBAction func voiceTapped(_ sender: Any) {
-        let utterance = AVSpeechUtterance(string: textView.text)
-        utterance.voice = AVSpeechSynthesisVoice(language: "en-US")
-        utterance.rate = 0.5
+        
+         if (synthesizer.isPaused) {
+            synthesizer.continueSpeaking();
+                }
+         else if (synthesizer.isSpeaking) {
+            synthesizer.pauseSpeaking(at: AVSpeechBoundary.immediate)
+                 }
+        else if (!synthesizer.isSpeaking) {
+            let utterance = AVSpeechUtterance(string: textView.text)
+            utterance.voice = AVSpeechSynthesisVoice(language: "en-US")
+            utterance.rate = 0.5
+            synthesizer.speak(utterance)
+                 }
+
+    }
+    
+    //MARK: - Summarize
+    
+    @IBAction func summaryTapped(_ sender: Any) {
         
         let summary = Summary()
-
-        var content = textView.text!
-
-        var summarisedContent = summary.getSummary(content: content)
-        print(summarisedContent.description)
-        textView.text = summarisedContent.description
-
-        let synthesizer = AVSpeechSynthesizer()
-        synthesizer.speak(utterance)
-        print("Hell0")
+        let content = textView.text!
+        let summarisedContent = summary.getSummary(content: content)
+        text = summarisedContent.description
         
-        
-        
+        performSegue(withIdentifier: "textToSummary", sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let vc = segue.destination as! SummaryViewController
+        vc.text = text
     }
     
     //MARK: - Extract text using Vision
@@ -88,10 +102,9 @@ class ViewController: UIViewController, UINavigationControllerDelegate {
                 else {print("No candidate")
                     continue
                 }
-                self.textString += "\n\(topCandidate.string)"
+                self.textString += " \(topCandidate.string)"
                 DispatchQueue.main.async {
                     self.textView.text = self.textString
-                    //self.textView.text = "akyzsfncklxduncubsgy"
                     self.activity.stopAnimating()
                     self.activity.isHidden = true
                 }
