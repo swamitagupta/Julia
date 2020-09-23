@@ -25,7 +25,7 @@ class SearchViewController: UIViewController, SFSpeechRecognizerDelegate {
         super.viewDidLoad()
         micButton.isEnabled = false
         speechRecognizer!.delegate = self
-        textView.text = "Say something, I'm listening!"
+        //textView.text = "Say something, I'm listening!"
             
         SFSpeechRecognizer.requestAuthorization { (authStatus) in
                 
