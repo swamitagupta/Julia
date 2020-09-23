@@ -77,6 +77,9 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="18" height="22"/>
                                                 <color key="tintColor" red="0.97254901959999995" green="0.98823529409999999" blue="0.98431372549999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <state key="normal" image="doc" catalog="system"/>
+                                                <connections>
+                                                    <segue destination="Nn5-U2-9pM" kind="presentation" identifier="textToSummary" id="ChN-lq-KVf"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5PQ-pI-cLK">
                                                 <rect key="frame" x="126" y="0.0" width="17.5" height="22"/>
@@ -194,6 +197,75 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1684.057971014493" y="93.75"/>
+        </scene>
+        <!--Summary View Controller-->
+        <scene sceneID="KLa-8Q-2qF">
+            <objects>
+                <viewController id="Nn5-U2-9pM" customClass="SummaryViewController" customModule="ImageToText" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="mvu-va-sHP">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Summary" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xoN-GV-MX4">
+                                <rect key="frame" x="155.5" y="50" width="103" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <color key="textColor" red="0.47450980390000003" green="0.81960784310000001" blue="0.76470588240000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Summary here." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="lEz-ZZ-Xao">
+                                <rect key="frame" x="30" y="110" width="354" height="136"/>
+                                <color key="backgroundColor" red="0.78823529410000004" green="0.99215686270000003" blue="0.84313725490000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C96-i8-dBX">
+                                <rect key="frame" x="177" y="266" width="60" height="30"/>
+                                <color key="backgroundColor" red="0.40784313729999999" green="0.57254901960000004" blue="0.83529411760000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="60" id="81R-ux-8Kf"/>
+                                </constraints>
+                                <color key="tintColor" red="0.40784313729999999" green="0.57254901960000004" blue="0.83529411760000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Copy">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="copyTapped:" destination="Nn5-U2-9pM" eventType="touchUpInside" id="qVK-iV-YAJ"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="jxp-4m-ieQ"/>
+                        <color key="backgroundColor" red="0.97254901960784312" green="0.9882352941176471" blue="0.98431372549019602" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="C96-i8-dBX" firstAttribute="centerX" secondItem="mvu-va-sHP" secondAttribute="centerX" id="1ST-Ke-Wd2"/>
+                            <constraint firstItem="lEz-ZZ-Xao" firstAttribute="centerX" secondItem="mvu-va-sHP" secondAttribute="centerX" id="71J-9k-0hE"/>
+                            <constraint firstItem="lEz-ZZ-Xao" firstAttribute="top" secondItem="xoN-GV-MX4" secondAttribute="bottom" constant="30" id="Emq-Fv-dKE"/>
+                            <constraint firstItem="jxp-4m-ieQ" firstAttribute="bottom" secondItem="lEz-ZZ-Xao" secondAttribute="bottom" constant="562" id="GfA-d7-Rul"/>
+                            <constraint firstItem="C96-i8-dBX" firstAttribute="top" secondItem="lEz-ZZ-Xao" secondAttribute="bottom" constant="20" id="dUe-WY-K22"/>
+                            <constraint firstItem="xoN-GV-MX4" firstAttribute="top" secondItem="jxp-4m-ieQ" secondAttribute="top" constant="50" id="oB3-mr-Ys1"/>
+                            <constraint firstItem="lEz-ZZ-Xao" firstAttribute="leading" secondItem="jxp-4m-ieQ" secondAttribute="leading" constant="30" id="sTA-vA-Ldn"/>
+                            <constraint firstItem="xoN-GV-MX4" firstAttribute="centerX" secondItem="mvu-va-sHP" secondAttribute="centerX" id="zjy-4u-q1d"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="sde-Jj-D10"/>
+                    <connections>
+                        <outlet property="copyButton" destination="C96-i8-dBX" id="nce-uZ-am4"/>
+                        <outlet property="textView" destination="lEz-ZZ-Xao" id="haD-Mh-zlb"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="EgL-Ma-dJ8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2457.971014492754" y="93.75"/>
         </scene>
         <!--Read-->
         <scene sceneID="9Op-97-wFP">

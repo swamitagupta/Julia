@@ -18,6 +18,7 @@
 		7022B38C251A27AE0014D5A4 /* ImageToTextUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7022B38B251A27AE0014D5A4 /* ImageToTextUITests.swift */; };
 		7022B3B5251A6D360014D5A4 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7022B3B4251A6D350014D5A4 /* SearchViewController.swift */; };
 		7022B3D3251A77DD0014D5A4 /* Summary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7022B3D2251A77DD0014D5A4 /* Summary.swift */; };
+		7022B3DE251B3CA40014D5A4 /* SummaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7022B3DD251B3CA40014D5A4 /* SummaryViewController.swift */; };
 		763197BF0046E6284C74AB1F /* Pods_ImageToText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 868B49F7A38337319F50D673 /* Pods_ImageToText.framework */; };
 		E3AE495FB79B8E45C9860A6E /* Pods_ImageToTextTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1067C02C8D934A0854AA381B /* Pods_ImageToTextTests.framework */; };
 /* End PBXBuildFile section */
@@ -58,6 +59,7 @@
 		7022B38D251A27AE0014D5A4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7022B3B4251A6D350014D5A4 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		7022B3D2251A77DD0014D5A4 /* Summary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Summary.swift; sourceTree = "<group>"; };
+		7022B3DD251B3CA40014D5A4 /* SummaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryViewController.swift; sourceTree = "<group>"; };
 		7A31B3708AB34C1D501FCFBF /* Pods_ImageToText_ImageToTextUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ImageToText_ImageToTextUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		868B49F7A38337319F50D673 /* Pods_ImageToText.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ImageToText.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8DD27FD879F2767E2E54E3B2 /* Pods-ImageToText-ImageToTextUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ImageToText-ImageToTextUITests.release.xcconfig"; path = "Target Support Files/Pods-ImageToText-ImageToTextUITests/Pods-ImageToText-ImageToTextUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -163,6 +165,7 @@
 			children = (
 				7022B36D251A27A60014D5A4 /* ViewController.swift */,
 				7022B3B4251A6D350014D5A4 /* SearchViewController.swift */,
+				7022B3DD251B3CA40014D5A4 /* SummaryViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -477,6 +480,7 @@
 				7022B36A251A27A60014D5A4 /* AppDelegate.swift in Sources */,
 				7022B3B5251A6D360014D5A4 /* SearchViewController.swift in Sources */,
 				7022B36C251A27A60014D5A4 /* SceneDelegate.swift in Sources */,
+				7022B3DE251B3CA40014D5A4 /* SummaryViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
