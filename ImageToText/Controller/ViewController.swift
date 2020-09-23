@@ -18,6 +18,7 @@ class ViewController: UIViewController, UINavigationControllerDelegate, AVSpeech
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var textView: UITextView!
     @IBOutlet weak var activity: UIActivityIndicatorView!
+    @IBOutlet weak var speechButton: UIButton!
     
     let imagePicker = UIImagePickerController()
     let synthesizer = AVSpeechSynthesizer()
@@ -60,11 +61,14 @@ class ViewController: UIViewController, UINavigationControllerDelegate, AVSpeech
         
          if (synthesizer.isPaused) {
             synthesizer.continueSpeaking();
+            speechButton.setImage(UIImage(systemName: "pause.fill"), for: .normal)
                 }
          else if (synthesizer.isSpeaking) {
             synthesizer.pauseSpeaking(at: AVSpeechBoundary.immediate)
+            speechButton.setImage(UIImage(systemName: "speaker"), for: .normal)
                  }
         else if (!synthesizer.isSpeaking) {
+            speechButton.setImage(UIImage(systemName: "pause.fill"), for: .normal)
             let utterance = AVSpeechUtterance(string: textView.text)
             utterance.voice = AVSpeechSynthesisVoice(language: "en-US")
             utterance.rate = 0.5
@@ -81,23 +85,19 @@ class ViewController: UIViewController, UINavigationControllerDelegate, AVSpeech
     
     func speechSynthesizer(_ synthesizer: AVSpeechSynthesizer, didFinish utterance: AVSpeechUtterance) {
         textView.attributedText = NSAttributedString(string: utterance.speechString)
+        speechButton.setImage(UIImage(systemName: "speaker"), for: .normal)
     }
     
     //MARK: - Summarize
     
     @IBAction func summaryTapped(_ sender: Any) {
         
-        let summary = Summary()
-        let content = textView.text!
-        let summarisedContent = summary.getSummary(content: content)
-        text = summarisedContent.description
-        
         performSegue(withIdentifier: "textToSummary", sender: self)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let vc = segue.destination as! SummaryViewController
-        vc.text = text
+        vc.text = textView.text
     }
     
     //MARK: - Extract text using Vision
@@ -123,7 +123,7 @@ class ViewController: UIViewController, UINavigationControllerDelegate, AVSpeech
             }
         })
         request.customWords = ["custom"]
-        request.minimumTextHeight = 0.032
+        //request.minimumTextHeight = 0.032
         request.recognitionLevel = .accurate
         request.recognitionLanguages = ["en_US"]
         request.usesLanguageCorrection = true
@@ -142,8 +142,21 @@ class ViewController: UIViewController, UINavigationControllerDelegate, AVSpeech
     //MARK: - Search for keywords
     
     @IBAction func findTapped(_ sender: Any) {
-        let attributedText = generateAttributedString(with: "the", targetString: textView.text)
-        textView.attributedText = attributedText
+        
+        let alert = UIAlertController(title: "Keyword", message: "What word do you want to find?", preferredStyle: .alert)
+        alert.addTextField()
+        
+        let submitAction = UIAlertAction(title: "Search", style: .default) { [unowned alert] _ in
+            let inputString = alert.textFields![0]
+            let attributedText = self.generateAttributedString(with: inputString.text!, targetString: self.textView.text)
+            self.textView.attributedText = attributedText
+        }
+        
+        alert.addAction(submitAction)
+        present(alert, animated: true)
+        
+        
+        
     }
     
     func generateAttributedString(with searchTerm: String, targetString: String) -> NSAttributedString? {
@@ -153,7 +166,7 @@ class ViewController: UIViewController, UINavigationControllerDelegate, AVSpeech
             let regex = try NSRegularExpression(pattern: searchTerm.trimmingCharacters(in: .whitespacesAndNewlines).folding(options: .diacriticInsensitive, locale: .current), options: .caseInsensitive)
             let range = NSRange(location: 0, length: targetString.utf16.count)
             for match in regex.matches(in: targetString.folding(options: .diacriticInsensitive, locale: .current), options: .withTransparentBounds, range: range) {
-                //attributedString.addAttribute(NSAttributedString.Key.font, value: UIFont.systemFont(ofSize: 14, weight: UIFont.Weight.bold), range: match.range)
+                //attributedString.addAttribute(NSAttributedString.Key.font, value: UIFont.systemFont(ofSize: 12, weight: UIFont.Weight.regular), range: match.range)
                 attributedString.addAttribute(NSAttributedString.Key.backgroundColor, value: UIColor.yellow, range: match.range)
             }
             return attributedString

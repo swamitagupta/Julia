@@ -10,13 +10,16 @@ import UIKit
 class SummaryViewController: UIViewController {
     
     var text = ""
+    
+    let summary = Summary()
 
     @IBOutlet weak var textView: UITextView!
     @IBOutlet weak var copyButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        textView.text = text
+        let summarisedContent = summary.getSummary(content: text)
+        textView.text = summarisedContent.description
     }
     
     @IBAction func copyTapped(_ sender: Any) {

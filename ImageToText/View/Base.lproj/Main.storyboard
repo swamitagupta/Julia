@@ -20,7 +20,7 @@
                                 <rect key="frame" x="20" y="495" width="374" height="218"/>
                                 <color key="backgroundColor" red="0.78823529410000004" green="0.99215686270000003" blue="0.84313725490000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -195,6 +195,7 @@
                     <connections>
                         <outlet property="activity" destination="vN9-ny-Ssh" id="Y1U-Wy-xVZ"/>
                         <outlet property="imageView" destination="K3e-9B-WKc" id="DdD-N8-ByH"/>
+                        <outlet property="speechButton" destination="5PQ-pI-cLK" id="BtM-Y0-HEM"/>
                         <outlet property="textView" destination="duX-G2-0nP" id="Oga-5q-CVQ"/>
                     </connections>
                 </viewController>
