@@ -46,7 +46,9 @@ class SearchViewController: UIViewController, SFSpeechRecognizerDelegate {
                 case .notDetermined:
                     isButtonEnabled = false
                     print("Speech recognition not yet authorized")
-                }
+            @unknown default:
+                fatalError("SF Speech recognition failed!")
+            }
                 
             OperationQueue.main.addOperation() {
                     self.micButton.isEnabled = isButtonEnabled
@@ -129,7 +131,6 @@ class SearchViewController: UIViewController, SFSpeechRecognizerDelegate {
         inputNode.installTap(onBus: 0, bufferSize: 1024, format: recordingFormat) { (buffer, when) in
             self.recognitionRequest?.append(buffer)
         }
-        
         audioEngine.prepare()
         
         do {
@@ -137,7 +138,6 @@ class SearchViewController: UIViewController, SFSpeechRecognizerDelegate {
         } catch {
             print("audioEngine couldn't start because of an error.")
         }
-        
         textView.text = "Say something, I'm listening!"
         
     }

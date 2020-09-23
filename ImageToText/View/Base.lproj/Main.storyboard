@@ -94,6 +94,9 @@
                                                 <rect key="frame" x="251.5" y="0.0" width="20" height="22"/>
                                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <state key="normal" image="magnifyingglass" catalog="system"/>
+                                                <connections>
+                                                    <action selector="findTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Wpy-YU-a2y"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>

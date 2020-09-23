@@ -9,7 +9,7 @@ import UIKit
 import Vision
 import AVFoundation
 
-class ViewController: UIViewController, UINavigationControllerDelegate {
+class ViewController: UIViewController, UINavigationControllerDelegate, AVSpeechSynthesizerDelegate {
     
     var image  = UIImage(named: "sample")
     var textString = ""
@@ -20,6 +20,7 @@ class ViewController: UIViewController, UINavigationControllerDelegate {
     @IBOutlet weak var activity: UIActivityIndicatorView!
     
     let imagePicker = UIImagePickerController()
+    let synthesizer = AVSpeechSynthesizer()
     var request = VNRecognizeTextRequest(completionHandler: nil)
     
     override func viewDidLoad() {
@@ -27,6 +28,7 @@ class ViewController: UIViewController, UINavigationControllerDelegate {
         self.activity.isHidden = true
         self.activity.stopAnimating()
         imagePicker.delegate = self
+        synthesizer.delegate = self
         
         
     }
@@ -52,7 +54,7 @@ class ViewController: UIViewController, UINavigationControllerDelegate {
     
     //MARK: - Text to Speech
     
-    let synthesizer = AVSpeechSynthesizer()
+    
     
     @IBAction func voiceTapped(_ sender: Any) {
         
@@ -69,6 +71,16 @@ class ViewController: UIViewController, UINavigationControllerDelegate {
             synthesizer.speak(utterance)
                  }
 
+    }
+    
+    func speechSynthesizer(_ synthesizer: AVSpeechSynthesizer, willSpeakRangeOfSpeechString characterRange: NSRange, utterance: AVSpeechUtterance) {
+        let attrString = NSMutableAttributedString(string: utterance.speechString)
+        attrString.addAttribute(.foregroundColor, value: UIColor.blue, range: characterRange)
+        textView.attributedText = attrString
+    }
+    
+    func speechSynthesizer(_ synthesizer: AVSpeechSynthesizer, didFinish utterance: AVSpeechUtterance) {
+        textView.attributedText = NSAttributedString(string: utterance.speechString)
     }
     
     //MARK: - Summarize
@@ -124,6 +136,30 @@ class ViewController: UIViewController, UINavigationControllerDelegate {
             }
             let handle = VNImageRequestHandler(cgImage: img, options: [:])
             try? handle.perform(requests)
+        }
+    }
+    
+    //MARK: - Search for keywords
+    
+    @IBAction func findTapped(_ sender: Any) {
+        let attributedText = generateAttributedString(with: "the", targetString: textView.text)
+        textView.attributedText = attributedText
+    }
+    
+    func generateAttributedString(with searchTerm: String, targetString: String) -> NSAttributedString? {
+
+        let attributedString = NSMutableAttributedString(string: targetString)
+        do {
+            let regex = try NSRegularExpression(pattern: searchTerm.trimmingCharacters(in: .whitespacesAndNewlines).folding(options: .diacriticInsensitive, locale: .current), options: .caseInsensitive)
+            let range = NSRange(location: 0, length: targetString.utf16.count)
+            for match in regex.matches(in: targetString.folding(options: .diacriticInsensitive, locale: .current), options: .withTransparentBounds, range: range) {
+                //attributedString.addAttribute(NSAttributedString.Key.font, value: UIFont.systemFont(ofSize: 14, weight: UIFont.Weight.bold), range: match.range)
+                attributedString.addAttribute(NSAttributedString.Key.backgroundColor, value: UIColor.yellow, range: match.range)
+            }
+            return attributedString
+        } catch {
+            NSLog("Error creating regular expresion: \(error)")
+            return nil
         }
     }
 }
