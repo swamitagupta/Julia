@@ -122,10 +122,9 @@
 			children = (
 				7022B369251A27A60014D5A4 /* AppDelegate.swift */,
 				7022B36B251A27A60014D5A4 /* SceneDelegate.swift */,
-				7022B3D2251A77DD0014D5A4 /* Summary.swift */,
-				7022B36D251A27A60014D5A4 /* ViewController.swift */,
-				7022B3B4251A6D350014D5A4 /* SearchViewController.swift */,
-				7022B36F251A27A60014D5A4 /* Main.storyboard */,
+				7022B3D7251B27420014D5A4 /* Model */,
+				7022B3D9251B28660014D5A4 /* View */,
+				7022B3D8251B27510014D5A4 /* Controller */,
 				7022B372251A27AD0014D5A4 /* Assets.xcassets */,
 				7022B374251A27AD0014D5A4 /* LaunchScreen.storyboard */,
 				7022B377251A27AD0014D5A4 /* Info.plist */,
@@ -149,6 +148,31 @@
 				7022B38D251A27AE0014D5A4 /* Info.plist */,
 			);
 			path = ImageToTextUITests;
+			sourceTree = "<group>";
+		};
+		7022B3D7251B27420014D5A4 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				7022B3D2251A77DD0014D5A4 /* Summary.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		7022B3D8251B27510014D5A4 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				7022B36D251A27A60014D5A4 /* ViewController.swift */,
+				7022B3B4251A6D350014D5A4 /* SearchViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		7022B3D9251B28660014D5A4 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				7022B36F251A27A60014D5A4 /* Main.storyboard */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		9A68C0B691AB57375F72550C /* Frameworks */ = {
